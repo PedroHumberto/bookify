@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Y15q8Q339JQgHd5OPIn6yWdRPHnCDNMifE3kMVhSQeDaGDQ/d6H/tDbvlnRySMnrqPVrxr6JRALayRiaH41W+w==",
+  "success": true,
+  "projectFilePath": "D:\\Programming\\PORTFOLIO\\Bookify\\src\\Bookify.Domain\\Bookify.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\pedro\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
