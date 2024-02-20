@@ -9,7 +9,7 @@ using Bookify.Domain.Shared;
 
 namespace Bookify.Domain.Bookings
 {
-    public partial class Booking : Entity
+    public sealed class Booking : Entity
     {
         private Booking(
             Guid id,
