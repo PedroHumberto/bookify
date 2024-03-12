@@ -18,7 +18,7 @@ namespace Bookify.Domain.Abstractions
         public IReadOnlyList<IDomainEvent> GetDomainEvents(){
             return _domainEvents.ToList();
         }
-        public void ClearDomainEvent(){
+        public void ClearDomainEvents(){
             _domainEvents.Clear();
         }
         protected void RaiseDomainEvent(IDomainEvent domainEvent){

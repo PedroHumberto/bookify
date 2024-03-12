@@ -55,20 +55,27 @@ namespace Bookify.Application.Bookings.ReserveBooking
             {
                 return Result.Failure<Guid>(BookingErrors.Overlap);
             }
+            try
+            {
+                var booking = Booking.Reserve(
+                    apartment,
+                    user.Id,
+                    duration,
+                    _dateTimeProvider.UtcNow,
+                    _pricingService
+                );
 
-            var booking = Booking.Reserve(
-                apartment,
-                user.Id,
-                duration,
-                _dateTimeProvider.UtcNow,
-                _pricingService
-            );
+                _bookingRepository.Add(booking);
 
-            _bookingRepository.Add(booking);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
 
-            await _unitOfWork.SaveChangesAsync(cancellationToken);
+                return booking.Id;
+            }
+            catch
+            {
+                return Result.Failure<Guid>(BookingErrors.Overlap);
+            }
 
-            return booking.Id;
         }
     }
 }
