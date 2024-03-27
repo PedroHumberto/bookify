@@ -27,7 +27,7 @@ namespace Bookify.Infrastructure
 
             services.AddTransient<IDateTimeProvider, DateTimeProvider>();
             services.AddTransient<IEmailService, EmailService>();
-            
+
             var connectionString = configuration.GetConnectionString("Database") ?? 
                 throw new ArgumentNullException(nameof(configuration));
 

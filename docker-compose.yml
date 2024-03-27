@@ -11,13 +11,12 @@ services:
         - bookify-db
 
   bookify-db:
-    image: postgres:latest
+    image: mcr.microsoft.com/mssql/server:2019-latest
     container_name: Bookify.Db
     environment:
-        - POSTGRES_DB=bookify
-        - POSTGRES_USER=postgres
-        - POSTGRES_PASSWORD=postgres
+      SA_PASSWORD: "A1b2c3d4@5"
+      ACCEPT_EULA: "Y"
     volumes:
-        - ./.containers/database:/var/lib/postgresql/data
+        - ./.containers/database:/var/opt/mssql
     ports:
         - 5432:5432
