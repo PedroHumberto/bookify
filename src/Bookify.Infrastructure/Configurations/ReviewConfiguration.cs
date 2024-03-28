@@ -16,26 +16,30 @@ namespace Bookify.Infrastructure.Configurations
         {
             builder.ToTable("Reviews");
 
-        builder.HasKey(review => review.Id);
+            builder.HasKey(review => review.Id);
 
-        builder.Property(review => review.Rating)
-            .HasConversion(rating => rating.Value, value => Rating.Create(value).Value);
+            builder.Property(review => review.Rating)
+                .HasConversion(rating => rating.Value, value => Rating.Create(value).Value);
 
-        builder.Property(review => review.Comment)
-            .HasMaxLength(200)
-            .HasConversion(comment => comment.Value, value => new Comment(value));
+            builder.Property(review => review.Comment)
+                .HasMaxLength(200)
+                .HasConversion(comment => comment.Value, value => new Comment(value));
 
-        builder.HasOne<Apartment>()
-            .WithMany()
-            .HasForeignKey(review => review.ApartmentId);
+            builder.HasOne<Apartment>()
+                .WithMany()
+                .HasForeignKey(review => review.ApartmentId)
+                .OnDelete(DeleteBehavior.Restrict); 
 
-        builder.HasOne<Booking>()
-            .WithMany()
-            .HasForeignKey(review => review.BookingId);
+            builder.HasOne<Booking>()
+                .WithMany()
+                .HasForeignKey(review => review.BookingId)
+                .OnDelete(DeleteBehavior.Restrict); 
 
-        builder.HasOne<User>()
-            .WithMany()
-            .HasForeignKey(review => review.UserId);
+            builder.HasOne<User>()
+                .WithMany()
+                .HasForeignKey(review => review.UserId)
+                .OnDelete(DeleteBehavior.Restrict); 
+
         }
     }
 }

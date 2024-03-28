@@ -14,7 +14,7 @@ services:
     image: mcr.microsoft.com/mssql/server:2019-latest
     container_name: Bookify.Db
     environment:
-      SA_PASSWORD: "A1b2c3d4@5"
+      SA_PASSWORD: "1q2w3e4r@#$"
       ACCEPT_EULA: "Y"
     volumes:
         - ./.containers/database:/var/opt/mssql

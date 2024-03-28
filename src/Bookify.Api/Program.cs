@@ -1,3 +1,4 @@
+using Bookify.Api.Extensions;
 using Bookify.Application;
 using Bookify.Infrastructure;
 
@@ -18,8 +19,14 @@ var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
-app.UseSwagger();
-app.UseSwaggerUI();
+if( app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+    app.ApplyMigrations();
+    app.SeedData();
+
+}
 
 
 app.UseHttpsRedirection();

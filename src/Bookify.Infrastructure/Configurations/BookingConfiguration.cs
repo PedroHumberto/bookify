@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Bookify.Domain.Apartments;
 using Bookify.Domain.Bookings;
+using Bookify.Domain.Reviews;
 using Bookify.Domain.Shared;
 using Bookify.Domain.Users;
 using Microsoft.EntityFrameworkCore;
@@ -52,6 +53,8 @@ namespace Bookify.Infrastructure.Configurations
         builder.HasOne<User>()
             .WithMany()
             .HasForeignKey(booking => booking.UserId);
+            
+
         }
     }
 }
